@@ -179,86 +179,87 @@ if ($right == 0) {
 
 				?>
 
+				<div id="srunner" class="modal-block modal-header-color modal-block-danger">
+					<section class="card">
+						<header class="card-header" style="background-color: grey;">
+
+							<h2 class="card-title">Your Question Goes Here:</h2>
+						</header>
+						<div class="card-body">
+							<?php
+
+							if ($q <= 5) {
+								$bl = 1;
+								$be = 3;
+							} else if ($q <= 10) {
+								$bl = 4;
+								$be = 7;
+							} else {
+								$bl = 8;
+								$be = 10;
+							}
+
+							if ($q <= 15) {
+								echo "<h4 align='center' STYLE='COLOR:RED; class='box'><B>YOUR QUESTION NO - $q</B></h4>";
+								$ques = mysqli_query($conn, "SELECT * FROM words where qid not in (select qid from responses where sid='$sid') and level between $bl and $be ORDER BY RAND() LIMIT 1;");
+
+								$qrow = mysqli_fetch_array($ques);
+								$qid = $qrow['qid'];
+								$ranswer = strtoupper($qrow['word']);
+								$question = $qrow['meaning'];
+								$lvl = $qrow['level'];
+
+								if ($lvl <= 3) {
+									$level = "Easy";
+								} else if ($lvl <= 6) {
+									$level = "Moderate";
+								} else if ($lvl <= 10) {
+									$level = "Difficult";
+								}
+
+								$opr = array($qrow['option1'], $qrow['option2'], $qrow['option3'], $ranswer);
+								shuffle($opr);
+
+								$option1 = strtoupper($opr[0]);
+								$option2 = strtoupper($opr[1]);
+								$option3 = strtoupper($opr[2]);
+								$option4 = strtoupper($opr[3]);
+
+								echo "<div align='center' class='box'><h4><b>Question: </b>" . $question . "</h4></div>";
+								echo "<div align='center' class='box'><h4><b>Difficulty Level: </b>" . $level . "</h4></div><div align='center'>";
+
+								echo "<button class='mb-1 mt-1 mr-1 btn btn-danger' onclick='spell_sound($qid);'><span style='color:#ffffff;'><i class='fas fa-volume-up'></i> SPELL WORD <i class='fas fa-play'></i></span></button>";
+								//echo "<button class='mb-1 mt-1 mr-1 btn btn-primary' onclick='spell_human($qid);'><span style='color:#000000;'><i class='fas fa-volume-up'></i> SPELL HUMAN WORD <i class='fas fa-play'></i></span></button>";
+
+								//echo "<div id='spelling'>WRITE THE CORRECT SPELLING IN THE TEXT BOX<div class='col-8'><input type='hidden' name='qid' id='qid' value='$qid'><input type='text' class='form-control' name='answer'  id='answer'  value='' placeholder='Your Spelling Here' style='text-transform:uppercase;' autocomplete='off' REQUIRED></div><div class='col-4'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-success' onclick='check_spelling();'>Submit Spelling</button></div></div>";
+								echo "<div id='box'>CLICK ON THE RIGHT SPELLING</div>";
+
+
+
+								echo "<a href='dashboard.php?qid=$qid&op=$option1'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary' class='box'>$option1</button></a>";
+								echo "<a href='dashboard.php?qid=$qid&op=$option2'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary' class='box'>$option2</button></a>";
+								echo "<a href='dashboard.php?qid=$qid&op=$option3'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary' class='box'>$option3</button></a>";
+								echo "<a href='dashboard.php?qid=$qid&op=$option4'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary' class='box'>$option4</button></a>";
+
+								echo "</div>";
+							} else {
+								echo "<h3 style='color:red;' align='center'>YOUR SPELL BEE QUIZ HAS BEEN COMPLETED!</h3>";
+							}
+
+
+
+							?>
+						</div>
+					</section>
+				</div>
+
 				<!-- start: page -->
-				<div class='row'>
-					<div class="col-xl-8">
-						<h5 class="font-weight-semibold text-dark text-uppercase mb-3 mt-3" style="margin-left: 60px">YOUR QUESTION HERE</h5>
-						<section class="card mt-4">
-							<div class="card-body">
-								<?php
-
-								if ($q <= 5) {
-									$bl = 1;
-									$be = 3;
-								} else if ($q <= 10) {
-									$bl = 4;
-									$be = 7;
-								} else {
-									$bl = 8;
-									$be = 10;
-								}
-
-								if ($q <= 15) {
-									echo "<h4 align='center' STYLE='COLOR:RED;'><B>YOUR QUESTION NO - $q</B></h4>";
-									$ques = mysqli_query($conn, "SELECT * FROM words where qid not in (select qid from responses where sid='$sid') and level between $bl and $be ORDER BY RAND() LIMIT 1;");
-
-									$qrow = mysqli_fetch_array($ques);
-									$qid = $qrow['qid'];
-									$ranswer = strtoupper($qrow['word']);
-									$question = $qrow['meaning'];
-									$lvl = $qrow['level'];
-
-									if ($lvl <= 3) {
-										$level = "Easy";
-									} else if ($lvl <= 6) {
-										$level = "Moderate";
-									} else if ($lvl <= 10) {
-										$level = "Difficult";
-									}
-
-									$opr = array($qrow['option1'], $qrow['option2'], $qrow['option3'], $ranswer);
-									shuffle($opr);
-
-									$option1 = strtoupper($opr[0]);
-									$option2 = strtoupper($opr[1]);
-									$option3 = strtoupper($opr[2]);
-									$option4 = strtoupper($opr[3]);
-
-									echo "<div align='center'><h4><b>Word Meaning: </b>" . $question . "</h4></div>";
-									echo "<div align='center'><h4><b>Difficulty Level: </b>" . $level . "</h4></div><div align='center'>";
-
-									echo "<button class='mb-1 mt-1 mr-1 btn btn-danger' onclick='spell_sound($qid);'><span style='color:#ffffff;'><i class='fas fa-volume-up'></i> SPELL WORD <i class='fas fa-play'></i></span></button>";
-									//echo "<button class='mb-1 mt-1 mr-1 btn btn-primary' onclick='spell_human($qid);'><span style='color:#000000;'><i class='fas fa-volume-up'></i> SPELL HUMAN WORD <i class='fas fa-play'></i></span></button>";
-
-									//echo "<div id='spelling'>WRITE THE CORRECT SPELLING IN THE TEXT BOX<div class='col-8'><input type='hidden' name='qid' id='qid' value='$qid'><input type='text' class='form-control' name='answer'  id='answer'  value='' placeholder='Your Spelling Here' style='text-transform:uppercase;' autocomplete='off' REQUIRED></div><div class='col-4'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-success' onclick='check_spelling();'>Submit Spelling</button></div></div>";
-									echo "<div>CLICK ON THE RIGHT SPELLING</div>";
-
-
-
-									echo "<a href='dashboard.php?qid=$qid&op=$option1'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary'>$option1</button></a>";
-									echo "<a href='dashboard.php?qid=$qid&op=$option2'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary'>$option2</button></a>";
-									echo "<a href='dashboard.php?qid=$qid&op=$option3'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary'>$option3</button></a>";
-									echo "<a href='dashboard.php?qid=$qid&op=$option4'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-primary'>$option4</button></a>";
-
-									echo "</div>";
-								} else {
-									echo "<h3 style='color:red;' align='center'>YOUR SPELL BEE QUIZ HAS BEEN COMPLETED!</h3>";
-								}
-
-
-
-								?>
-							</div>
-
-						</section>
-
-
-					</div>
 
 
 
 
-					<!--					<div class="col-xl-2">
+
+				<!--					<div class="col-xl-2">
 
 					<h5 class="font-weight-semibold text-dark text-uppercase mb-3 mt-3">My Stats</h5>
         			<?php
@@ -270,10 +271,10 @@ if ($right == 0) {
 
 					</div>
 -->
-				</div>
-
-			</section>
 		</div>
+
+	</section>
+	</div>
 
 
 	</section>
