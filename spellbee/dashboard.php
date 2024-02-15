@@ -142,7 +142,7 @@ if ($right == 0) {
 									<a href="#" class="card-action card-action-toggle" data-card-toggle></a>
 									<a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
 								</div>
-								<h2 class="card-title">SRKR SPELL BEE ANSWER</h2>
+								<h2 class="card-title">KBC ANSWER</h2>
 							</header>
 							<div class="card-body" style='text-align:center;'>
 								<ul class="simple-bullet-list mb-3">
@@ -163,7 +163,7 @@ if ($right == 0) {
 									<a href="#" class="card-action card-action-toggle" data-card-toggle></a>
 									<a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
 								</div>
-								<h2 class="card-title">SRKR SPELL BEE ANSWER</h2>
+								<h2 class="card-title">KBC ANSWER</h2>
 							</header>
 							<div class="card-body" style='text-align:center;'>
 								<ul class="simple-bullet-list mb-3">
