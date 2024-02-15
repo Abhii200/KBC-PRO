@@ -11,8 +11,8 @@ if(isset($_GET['qid']) && isset($_GET['st']))
 
 	if($st==0)
 	{		
-      mysqli_query($conn, "update words set status=0");
-  	  mysqli_query($conn, "update words set status=1 where qid=$qid;");
+      mysqli_query($conn, "update words3 set status=0");
+  	  mysqli_query($conn, "update words3 set status=1 where qid=$qid;");
 	}
     else
 	{
@@ -122,11 +122,11 @@ if(isset($_GET['qid']) && isset($_GET['st']))
 										<tbody>
     <?php
  										  
-    $ques_res=mysqli_query($conn, "SELECT * from words order by qid desc;"); 		
+    $ques_res=mysqli_query($conn, "SELECT * from words3 order by qid desc;"); 		
     while($row=mysqli_fetch_array($ques_res))
 	  {
    	    $qid=$row['qid'];
-        $opt_res=mysqli_query($conn, "SELECT * from answers where qid=$qid order by op;"); 		
+        $opt_res=mysqli_query($conn, "SELECT * from reponses where qid=$qid order by op;"); 		
     	$code=$row[3];
 
 	    if($code == 'E') { $level="Easy";}	  
@@ -135,10 +135,10 @@ if(isset($_GET['qid']) && isset($_GET['st']))
 
 		echo "<tr>";
 		echo "<td><b>$qid</b></td>";
-		echo "<td width='50%'><b>".$row['word']."</b> (Level: $level)<br>";
-		if($row['meaning'] != "")
+		echo "<td width='50%'><b>".$row['question']."</b> <br>";
+		if($row['answer'] != "")
 		{
-		  echo "<div style='width: 700px;white-space: normal;'>".$row['meaning']."</div>";	
+		  echo "<div style='width: 700px;white-space: normal;'>".$row['answer']."</div>";	
 		}
 
 		echo "</td>";
