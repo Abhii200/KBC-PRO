@@ -12,7 +12,7 @@ if (isset($_GET['qid'])) {
 	$qid = (int)$_GET['qid'];
 	$response = strtoupper(trim($_GET['op']));
 
-	$ans = mysqli_query($conn, "SELECT * FROM words where qid=$qid;");
+	$ans = mysqli_query($conn, "SELECT * FROM words3 where qid=$qid;");
 	$answer = mysqli_fetch_row($ans);
 	$sid = $_SESSION['pid'];
 	$ranswer = strtoupper($answer[1]);
@@ -41,9 +41,9 @@ if (isset($_GET['qid'])) {
 
 <head>
 	<?php include "head.php"; ?>
-	<style>
+	<style>x
 		body {
-			background-image: url('https://gamethinking.io/wp-content/uploads/sites/5/2018/12/quiz-background.png');
+			background-color: darkorange;
 			background-size: 150%;
 			/* Set the width to 50% and maintain aspect ratio for height */
 			background-position: center;
@@ -201,12 +201,12 @@ if ($right == 0) {
 
 							if ($q <= 15) {
 								echo "<h4 align='center' STYLE='COLOR:RED; class='box'><B>YOUR QUESTION NO - $q</B></h4>";
-								$ques = mysqli_query($conn, "SELECT * FROM words where qid not in (select qid from responses where sid='$sid') and level between $bl and $be ORDER BY RAND() LIMIT 1;");
+								$ques = mysqli_query($conn, "SELECT * FROM words3 where qid not in (select qid from responses where sid='$sid') and level between $bl and $be ORDER BY RAND() LIMIT 1;");
 
 								$qrow = mysqli_fetch_array($ques);
 								$qid = $qrow['qid'];
-								$ranswer = strtoupper($qrow['word']);
-								$question = $qrow['meaning'];
+								$ranswer = strtoupper($qrow['answer']);
+								$question = $qrow['question'];
 								$lvl = $qrow['level'];
 
 								if ($lvl <= 3) {
