@@ -226,7 +226,8 @@ if ($right == 0) {
 								$option4 = strtoupper($opr[3]);
 
 								echo "<div align='center' class='box'><h4><b>Question: </b></h4></div>";
-                                echo "<pre align='center' class='box' style='font-size: 18px;'><code>" . htmlspecialchars($question) . "</code></pre>";
+                                 echo "<pre align='center' class='box' style='font-size: 18px;'>" . htmlspecialchars($question) . "</pre>";
+                       
 
 
 
