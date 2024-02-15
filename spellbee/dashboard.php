@@ -225,7 +225,10 @@ if ($right == 0) {
 								$option3 = strtoupper($opr[2]);
 								$option4 = strtoupper($opr[3]);
 
-								echo "<div align='center' class='box'><h4><b>Question: </b>" . $question . "</h4></div>";
+								echo "<div align='center' class='box'><h4><b>Question: </b></h4></div>";
+								echo "<pre align='center' class='box' style='font-size: 18px;'>" . $question . "</pre>";
+
+
 								echo "<div align='center' class='box'><h4><b>Level 1: </b>";
 
 								//echo "<button class='mb-1 mt-1 mr-1 btn btn-primary' onclick='spell_human($qid);'><span style='color:#000000;'><i class='fas fa-volume-up'></i> SPELL HUMAN WORD <i class='fas fa-play'></i></span></button>";
