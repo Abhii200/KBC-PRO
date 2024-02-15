@@ -121,7 +121,7 @@ if ($right == 0) {
 			<!-- end: sidebar -->
 			<section role="main" class="content-body">
 				<header class="page-header">
-					<h2 style="margin-left: 37%;">Kaun Banega Karodpathi</h2>
+					<h2 style="margin-left: 37%;">Kaun Banega Codepathi</h2>
 				</header>
 
 
@@ -226,9 +226,8 @@ if ($right == 0) {
 								$option4 = strtoupper($opr[3]);
 
 								echo "<div align='center' class='box'><h4><b>Question: </b>" . $question . "</h4></div>";
-								echo "<div align='center' class='box'><h4><b>Difficulty Level: </b>" . $level . "</h4></div><div align='center'>";
+								echo "<div align='center' class='box'><h4><b>Level 1: </b>";
 
-								echo "<button class='mb-1 mt-1 mr-1 btn btn-danger' onclick='spell_sound($qid);'><span style='color:#ffffff;'><i class='fas fa-volume-up'></i> SPELL WORD <i class='fas fa-play'></i></span></button>";
 								//echo "<button class='mb-1 mt-1 mr-1 btn btn-primary' onclick='spell_human($qid);'><span style='color:#000000;'><i class='fas fa-volume-up'></i> SPELL HUMAN WORD <i class='fas fa-play'></i></span></button>";
 
 								//echo "<div id='spelling'>WRITE THE CORRECT SPELLING IN THE TEXT BOX<div class='col-8'><input type='hidden' name='qid' id='qid' value='$qid'><input type='text' class='form-control' name='answer'  id='answer'  value='' placeholder='Your Spelling Here' style='text-transform:uppercase;' autocomplete='off' REQUIRED></div><div class='col-4'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-success' onclick='check_spelling();'>Submit Spelling</button></div></div>";
