@@ -41,8 +41,8 @@ if (isset($_GET['qid'])) {
 
 <head>
 	<?php include "head.php"; ?>
-	<style>x
-		body {
+	<style>
+		x body {
 			background-color: darkorange;
 			background-size: 150%;
 			/* Set the width to 50% and maintain aspect ratio for height */
@@ -75,7 +75,68 @@ if (isset($_GET['qid'])) {
 			word-wrap: break-word;
 			text-align: left;
 		}
+
+		/* Add your CSS styles here */
+		.card {
+			margin: 20px;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		table {
+    width: 72%;
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table horizontally */
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    table {
+        width: 100%; /* Make the table full width on smaller screens */
+        margin: 20px 0; /* Remove left and right margin on smaller screens */
+    }
+}
+
+
+		th,
+		td {
+			border: 2px solid black;
+			padding: 8px;
+			text-align: left;
+		}
+
+		th {
+			background-color: purple;
+			color: whitesmoke;
+			/* Set the text color to black */
+			font-weight: bold;
+			/* Increase the thickness of the text */
+		}
+
+		tr:hover {
+			background-color: black;
+		}
+
+		h2 {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		/* Add this CSS style to remove black cursor on hover */
+		.user-responses-section table {
+			cursor: default;
+		}
+
+		/* Add this style if you want to change the cursor color */
+		.user-responses-section table tr:hover {
+			background-color: transparent;
+			/* Change the background color on hover if needed */
+			cursor: default;
+		}
 	</style>
+
 
 	<!-- Include your additional styles or scripts here -->
 </head>
@@ -113,6 +174,7 @@ if ($right == 0) {
 </head>
 
 <body>
+
 	<section class="body">
 		<?php include "header.php"; ?>
 		<div class="inner-wrapper">
@@ -173,6 +235,7 @@ if ($right == 0) {
 							</div>
 						</section>
 					</div>
+
 				<?php
 
 				}
@@ -181,7 +244,7 @@ if ($right == 0) {
 
 				<div id="srunner" class="modal-block modal-header-color modal-block-danger">
 					<section class="card">
-						<header class="card-header" style="background-color: grey;">
+						<header class="card-header" style="background-color: purple;">
 
 							<h2 class="card-title">Your Question Goes Here:</h2>
 						</header>
@@ -225,9 +288,12 @@ if ($right == 0) {
 								$option3 = strtoupper($opr[2]);
 								$option4 = strtoupper($opr[3]);
 
+								$userResponsesQuery = "SELECT qid, answer AS response, marks FROM responses WHERE sid='$sid'";
+								$userResponsesResult = mysqli_query($conn, $userResponsesQuery);
+
 								echo "<div align='center' class='box'><h4><b>Question: </b></h4></div>";
-                                 echo "<pre align='center' class='box' style='font-size: 18px;'>" . htmlspecialchars($question) . "</pre>";
-                       
+								echo "<pre align='center' class='box' style='font-size: 18px;'>" . htmlspecialchars($question) . "</pre>";
+
 
 
 
@@ -236,7 +302,7 @@ if ($right == 0) {
 								//echo "<button class='mb-1 mt-1 mr-1 btn btn-primary' onclick='spell_human($qid);'><span style='color:#000000;'><i class='fas fa-volume-up'></i> SPELL HUMAN WORD <i class='fas fa-play'></i></span></button>";
 
 								//echo "<div id='spelling'>WRITE THE CORRECT SPELLING IN THE TEXT BOX<div class='col-8'><input type='hidden' name='qid' id='qid' value='$qid'><input type='text' class='form-control' name='answer'  id='answer'  value='' placeholder='Your Spelling Here' style='text-transform:uppercase;' autocomplete='off' REQUIRED></div><div class='col-4'><button type='submit' class='mb-1 mt-1 mr-1 btn btn-success' onclick='check_spelling();'>Submit Spelling</button></div></div>";
-								echo "<div id='box'>CLICK ON THE RIGHT SPELLING</div>";
+								echo "<div id='box'>CLICK ON THE RIGHT ANSWER</div>";
 
 
 
@@ -256,6 +322,30 @@ if ($right == 0) {
 						</div>
 					</section>
 				</div>
+				<section class="user-responses-section">
+
+					<h2>User Score</h2>
+					<table border="5">
+						<thead>
+							<tr>
+								<th>QID</th>
+								<th>Response</th>
+								<th>Marks</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							while ($row = mysqli_fetch_assoc($userResponsesResult)) {
+								echo "<tr>";
+								echo "<td>{$row['qid']}</td>";
+								echo "<td>{$row['response']}</td>";
+								echo "<td>{$row['marks']}</td>";
+								echo "</tr>";
+							}
+							?>
+						</tbody>
+					</table>
+				</section>
 
 				<!-- start: page -->
 
@@ -296,6 +386,7 @@ if ($right == 0) {
 -->
 	</section>
 	</div>
+
 	<!-- Vendor -->
 	<script src="vendor/jquery/jquery.js"></script>
 	<script src="vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
@@ -378,6 +469,7 @@ if ($right == 0) {
 
 	<br><br>
 	<?php include "footer.php"; ?>
+
 </body>
 
 </html>
