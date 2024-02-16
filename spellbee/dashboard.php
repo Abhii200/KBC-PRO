@@ -86,18 +86,21 @@ if (isset($_GET['qid'])) {
 		}
 
 		table {
-    width: 72%;
-    border-collapse: collapse;
-    margin: 20px auto; /* Center the table horizontally */
-}
+			width: 72%;
+			border-collapse: collapse;
+			margin: 20px auto;
+			/* Center the table horizontally */
+		}
 
-/* Media query for mobile view */
-@media (max-width: 768px) {
-    table {
-        width: 100%; /* Make the table full width on smaller screens */
-        margin: 20px 0; /* Remove left and right margin on smaller screens */
-    }
-}
+		/* Media query for mobile view */
+		@media (max-width: 768px) {
+			table {
+				width: 100%;
+				/* Make the table full width on smaller screens */
+				margin: 20px 0;
+				/* Remove left and right margin on smaller screens */
+			}
+		}
 
 
 		th,
