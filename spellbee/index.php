@@ -46,9 +46,10 @@
 					<div class="card-body">
 						<form action="dashboard.php" method='post'>
 							<div class="current-user text-center">
-								<img src="img/full_logo.jpg" alt="BO HOUSIE" class="rounded-circle user-image" />
-								<h2 class="user-name text-dark m-0" style='font-size:24px;'>SPELL BEE LOGIN</h2>
-							    <p class="user-email m-0"><span class="alternative-font text-6">Beta Version (Under Testing)</span></p>
+								<img src="img/kbp.jpg" alt="BO HOUSIE" class="rounded-circle user-image" />
+								<h2 class="user-name text-dark m-0" style='font-size:24px;'>Kaun Banega Codepathi</h2>
+								<!-- <p class="user-email m-0"><span class="alternative-font text-6" style="color: violet;">Beta Version (Under Testing)</span></p> -->
+
 							</div>
 							<div class="form-group mb-3">
 								<div class="input-group">
@@ -71,6 +72,7 @@
 									</span>
 								</div>
 							</div>
+			
 	  <div class="help-block text-center">
 	  <?php
 	  
