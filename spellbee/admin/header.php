@@ -99,15 +99,7 @@
 			
 					<span class="separator"></span>
 			
-					<div id="userbox" class="userbox">
-						<a href="#" data-toggle="dropdown">
-							<div class="profile-info">
-								<span class="name"><?php echo $_SESSION['player_name']; ?></span>
-								<span class="role"><?php echo $_SESSION['place']; ?></span>
-							</div>
-			
-							<i class="fa custom-caret"></i>
-						</a>
+					
 			
 						<div class="dropdown-menu">
 							<ul class="list-unstyled mb-2">
