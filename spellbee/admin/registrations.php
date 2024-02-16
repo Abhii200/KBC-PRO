@@ -69,7 +69,7 @@ while($row=mysqli_fetch_array($player_res))
 	  
 	  //$msg1=urlencode("*Dear ".$row['player_name']." garu of ".$row['place']."*,\n\nThank you for registering to the *Bhimavaram Online Mega Housie 6* to be played on *24th OCTOBER 2021 (SUNDAY) at 3 PM (Game 1) & 3:30 PM Sharp (Game 2)*.\n\nGAME LOGIN DETAILS:\n*Game Link:* http://www.mcr.org.in/srkrhousie\n*Login ID:* $pid\n*Pin:* ".$row['pin']."\n\nSPONSOR: Bhimavaram Online\n\nPlease feel free to reply back to this message for any help (Or) Call Helpline - 9505356717,9293940004,9392449346,7989371134");
 	  
-	  $msg1=urlencode("Dear *".$row['player_name']."* garu (".$row['place']."),\n\nThank you for registering to the *Bhimavaram Online Mega Housie - New Year Special* to be played on *31st DECEMBER 2021 (TODAY) from 7:30 PM Onwards (Game Every Hour) - 5 Games Till 11:30 PM*.\n\nGAME LOGIN DETAILS:\n*Game Link:* http://www.mcr.org.in/srkrhousie\n*Login ID:* $pid\n*Pin:* ".$row['pin']."\n\nPlease feel free to reply back to this message for any help (Or) Call Helpline - *9182052673*,9010872333");
+	  $msg1=urlencode("Dear *".$row['player_name']."* garu (".$row['place']."),\n\nThank you for registering to the *Kaun Banega CodePathy* .\n\nGAME LOGIN DETAILS:\n*Game Link:* http://www.mcr.org.in/srkrhousie\n*Login ID:* $pid\n*Pin:* ".$row['pin']."\n\nPlease feel free to reply back to this message for any help (Or) Call Helpline - *9182052673*,9010872333");
 	  
 	  if($row['status'] == 1)
 	  {

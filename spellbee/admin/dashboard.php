@@ -116,13 +116,13 @@ if(isset($_GET['qid']) && isset($_GET['st']))
 											<tr>
 												<th>Q.No</th>
 												<th>Word</th>
-												<th>Meaning</th>
+												
 											</tr>
 										</thead>
 										<tbody>
     <?php
  										  
-    $ques_res=mysqli_query($conn, "SELECT * from words3 order by qid desc;"); 		
+    $ques_res=mysqli_query($conn, "SELECT * from words3 order by qid asc;"); 		
     while($row=mysqli_fetch_array($ques_res))
 	  {
    	    $qid=$row['qid'];
@@ -144,22 +144,7 @@ if(isset($_GET['qid']) && isset($_GET['st']))
 		echo "</td>";
 		
 		echo "<td>";	 
-		if($row['status'] == 0) 
-		 {
-  		   echo "<span id='s$qid'><a href='dashboard.php?qid=$qid&st=0#s$qid'><button type='button' class='mb-1 mt-1 mr-1 btn btn-xs btn-primary'>MAKE IT LIVE</button></a></span>";
-		 }
-		else
-		 {
-  		   echo "<span id='s$qid'><a href='dashboard.php?qid=$qid&st=1'><button type='button' class='mb-1 mt-1 mr-1 btn btn-xs btn-danger'>STOP LIVE</button></a></span>";
-		 }
-
-		 $resp_res=mysqli_query($conn, "SELECT count(*) from responses where qid=$qid;"); 		
-         $resp=mysqli_fetch_array($resp_res);
-         echo "<b>Answers:</b> ".$resp[0];
-  		 echo "<span id='d$qid'><button onclick='rdelete($qid);' type='button' class='mb-1 mt-1 mr-1 btn btn-xs btn-danger'>Delete Responses</button></a></span>";
-	 	 echo "</td>";
 		
-		echo "</tr>";
        }											
                                         ?>  
 										</tbody>
