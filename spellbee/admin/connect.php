@@ -1,5 +1,5 @@
 <?php
 
-$conn=new mysqli("localhost","root","","spellbee");
+$conn=new mysqli("localhost","root","4042","spellbee");
 
 ?>

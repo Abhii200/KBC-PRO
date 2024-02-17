@@ -39,6 +39,8 @@
 	</head>
 	<body>
 
+	
+
 		<!-- start: page -->
 	<section class="body-sign body-locked">
 			<div class="center-sign">
@@ -47,7 +49,7 @@
 						<form action="dashboard.php" method='post'>
 							<div class="current-user text-center">
 								<img src="img/kbp.jpg" alt="BO HOUSIE" class="rounded-circle user-image" />
-								<h2 class="user-name text-dark m-0" style='font-size:24px;'>Kaun Banega Codepathi</h2>
+								<h2 class="user-name text-dark m-0" style="font-size: 24px;">Kaun Banega Codepathi</h2>
 								<!-- <p class="user-email m-0"><span class="alternative-font text-6" style="color: violet;">Beta Version (Under Testing)</span></p> -->
 
 							</div>

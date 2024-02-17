@@ -42,19 +42,32 @@ if (isset($_GET['qid'])) {
 <head>
 	<?php include "head.php"; ?>
 	<style>
-		x body {
-			background-color: darkorange;
-			background-size: 150%;
-			/* Set the width to 50% and maintain aspect ratio for height */
-			background-position: center;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			/* Optional: Ensures the background stays fixed */
-			/* Additional styles if necessary */
-		}
+	 {
+            background-size: 150%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Large screens (desktops) */
+        @media (min-width: 769px) {
+            body {
+                background: url('https://getwallpapers.com/wallpaper/full/e/4/6/570852.jpg') center center fixed;
+				
+            }
+        }
+
+        /* Small screens (mobile devices) */
+        @media (max-width: 768px) {
+            body {
+                background: url('https://getwallpapers.com/wallpaper/full/e/4/6/570852.jpg') center center fixed;
+                background-size: cover;
+                /* Adjust other background properties as needed for mobile view */
+            }
+        }
 
 		td {
-			color: #000000;
+			color: lightblue;
 		}
 
 		.ui-pnotify.red .ui-pnotify-container {
@@ -103,11 +116,14 @@ if (isset($_GET['qid'])) {
 		}
 
 
-		th,
-		td {
+		th,td {
 			border: 2px solid black;
 			padding: 8px;
 			text-align: left;
+			-webkit-text-fill-color: black bold;
+			color: whitesmoke; /* Set the text color */
+    		font-weight: bold; /* Set the text weight to bold */
+    		text-shadow: 1px 1px 1px black;
 		}
 
 		th {

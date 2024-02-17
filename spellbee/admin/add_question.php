@@ -6,13 +6,13 @@ if(isset($_POST['question'])) {
     $question = addslashes($_POST['question']);
     $code = isset($_POST['code']) ? addslashes($_POST['code']) : '';
     $answer = $_POST['answer'];
-    $topic_id = $_POST['topic_id'];
+    $level= $_POST['level'];
     $option1 = $_POST['option1'];
     $option2 = $_POST['option2'];
     $option3 = $_POST['option3'];
 
     // Inserting data into words3 table
-    $insert_query = "INSERT INTO words3 (question, answer, option1, option2, option3) VALUES ('$question', '$answer', '$option1', '$option2', '$option3')";
+    $insert_query = "INSERT INTO words3 (question, answer, option1, option2, option3,level) VALUES ('$question', '$answer', '$option1', '$option2', '$option3','$level')";
     mysqli_query($conn, $insert_query);
 }
 ?>
@@ -63,7 +63,7 @@ if(isset($_POST['question'])) {
                                     <tr><td>OPTION B</td><td><input type='text' name='option2' class='form-control form-control-lg'></td></tr>
                                     <tr><td>OPTION C</td><td><input type='text' name='option3' class='form-control form-control-lg'></td></tr>
                                     <tr><td>ANSWER</td><td><input type='text' name='answer' class='form-control form-control-lg'></td></tr>
-                                           
+                                    <tr><td>Level</td><td><input type='text' name='level' class='form-control form-control-lg'></td></tr>
                                    
                                     <tr><td>SUBMIT</td><td><input type='submit' value='POST QUESTION' class='form-control form-control-lg'></td></tr>
                                     </tbody>

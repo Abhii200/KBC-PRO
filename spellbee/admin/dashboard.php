@@ -126,7 +126,7 @@ if(isset($_GET['qid']) && isset($_GET['st']))
     while($row=mysqli_fetch_array($ques_res))
 	  {
    	    $qid=$row['qid'];
-        $opt_res=mysqli_query($conn, "SELECT * from responses where qid=$qid order by op;"); 		
+        $opt_res=mysqli_query($conn, "SELECT * from responses where qid=$qid ;"); 		
     	$code=$row[3];
 
 	    if($code == 'E') { $level="Easy";}	  
