@@ -260,7 +260,7 @@ if ($right == 0) {
 							<?php
 							if ($q <= 4) {
 								echo "<h4 align='center' STYLE='COLOR:RED; class='box'><B>YOUR QUESTION NO - $q</B></h4>";
-								$ques = mysqli_query($conn, "SELECT * FROM words3 WHERE qid NOT IN (SELECT qid FROM responses WHERE sid='$sid') AND level=1 ORDER BY RAND() LIMIT 1;");
+								$ques = mysqli_query($conn, "SELECT * FROM words3 WHERE qid NOT IN (SELECT qid FROM responses WHERE sid='$sid') AND level=2 ORDER BY RAND() LIMIT 1;");
 								$qrow = mysqli_fetch_array($ques);
 								$qid = $qrow['qid'];
 								$ranswer = strtoupper($qrow['answer']);

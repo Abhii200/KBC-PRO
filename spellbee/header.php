@@ -98,7 +98,7 @@
     <header class="header">
         <div class="logo-container">
             <a href="dashboard.php" class="logo">
-                <img src="\KBC-PRO-main\KBC-PRO\spellbee\img\KCP.png" style="margin-top: -10px" width=55 alt="MCR WEB" />
+                <img src="\KBC-PRO-main\KBC-PRO-main\KBC-PRO\spellbee\img\kbp.jpg" style="margin-top: -10px" width=55 alt="MCR WEB" />
             </a>
             <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html"
                 data-fire-event="sidebar-left-opened">
